@@ -1,17 +1,12 @@
-{{#supportPython2}}
-#!/usr/bin/env python
-{{/supportPython2}}
-{{^supportPython2}}
-#!/usr/bin/env python3
-{{/supportPython2}}
-
+import os
 import connexion
-
+import {{packageName}}
 from {{packageName}} import encoder
 
 
 def main():
-    app = connexion.App(__name__, specification_dir='./swagger/')
+    swagger_path = os.path.join(os.path.dirname({{packageName}}.__file__), 'swagger')
+    app = connexion.App(__name__, specification_dir=swagger_path)
     app.app.json_encoder = encoder.JSONEncoder
     app.add_api('swagger.yaml', arguments={'title': '{{appName}}'})
     app.run(port={{serverPort}})
