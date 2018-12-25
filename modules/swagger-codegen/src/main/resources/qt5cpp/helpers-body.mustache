@@ -573,6 +573,11 @@ stringValue(bool value) {
     return QString(value ? "true" : "false");
 }
 
+QString
+stringValue(QDateTime* value) {
+    return value->toString(Qt::ISODate);
+}
+
 {{#cppNamespaceDeclarations}}
 }
 {{/cppNamespaceDeclarations}}

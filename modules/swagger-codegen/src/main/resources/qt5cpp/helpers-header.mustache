@@ -6,6 +6,7 @@
 #include <QJsonValue>
 #include <QList>
 #include <QMap>
+#include <QDateTime>
 
 {{#cppNamespaceDeclarations}}
 namespace {{this}} {
@@ -20,6 +21,7 @@ namespace {{this}} {
     QString stringValue(qint32 value);
     QString stringValue(qint64 value);
     QString stringValue(bool value);
+    QString stringValue(QDateTime* value);
 
 {{#cppNamespaceDeclarations}}
 }
